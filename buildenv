@@ -3,7 +3,7 @@ RUNNER_VERSION="17.6.0"
 
 export ZOPEN_STABLE_TAG="v${RUNNER_VERSION}"
 export ZOPEN_STABLE_URL="https://gitlab.com/gitlab-org/gitlab-runner.git"
-export ZOPEN_STABLE_DEPS="comp_go git curl"
+export ZOPEN_STABLE_DEPS="comp_go git curl wharf"
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_CATEGORIES="development source_control"
 export ZOPEN_NAME="gitlab-runner"
@@ -30,12 +30,9 @@ zopen_init()
 zopen_config()
 {
   MACHINEID_TAG=$(cat go.mod | grep machineid | cut -d ' ' -f 2)
-  AZURESDK=$(cat go.mod | grep azure-sdk-for-go/sdk/storage/azblob | cut -d ' ' -f 2)
-  AZURESDK_TAG="sdk-storage-azblob-${AZURESDK}"
-  PTY_TAG=$(cat go.mod | grep pty | cut -d ' ' -f 2)
   FASTZIP_TAG=$(cat go.mod | grep fastzip | cut -d ' ' -f 2)
-  GOSOCKADDR_TAG=$(cat go.mod | grep go-sockaddr | cut -d ' ' -f 2)
-  SYS_TAG=$(cat go.mod | grep x\/sys | cut -d ' ' -f 2)
+
+  go get -u github.com/creack/pty
 
   cd .. && echo ""
   git clone https://github.com/denisbrodbeck/machineid.git
@@ -46,22 +43,12 @@ zopen_config()
   git apply -v --ignore-space-change --ignore-whitespace machineid--$MACHINEID_TAG.patch
 
   cd .. && echo ""
-  echo "Cloning & checking out $AZURESDK_TAG"
-  # git clone --depth=1 https://github.com/Azure/azure-sdk-for-go.git
-  # cd azure-sdk-for-go && git -c advice.detachedHead=false checkout "sdk/storage/azblob/$AZURESDK"
-  git clone -c advice.detachedHead=false --depth=1 --branch "sdk/storage/azblob/$AZURESDK" https://github.com/azure/azure-sdk-for-go.git
-  cd azure-sdk-for-go
-  curl -s -o azure-sdk-for-go--$AZURESDK_TAG.patch "https://raw.githubusercontent.com/ZOSOpenTools/wharf/main/deps-patches/azure-sdk-for-go--$AZURESDK_TAG.patch"
-  git apply -v --ignore-space-change --ignore-whitespace azure-sdk-for-go--$AZURESDK_TAG.patch
+  git clone --depth=1 https://github.com/Azure/azure-sdk-for-go.git
 
-  cd .. && echo ""
-  git clone https://github.com/creack/pty.git
-  echo "Checking out $PTY_TAG"
-  cd pty && git -c advice.detachedHead=false checkout $PTY_TAG
-  curl -s -o pty--$PTY_TAG.patch "https://raw.githubusercontent.com/ZOSOpenTools/wharf/main/deps-patches/pty--$PTY_TAG.patch"
-  git apply -v --ignore-space-change --ignore-whitespace pty--$PTY_TAG.patch
+  # echo ""
+  # git clone https://github.com/creack/pty.git
 
-  cd .. && echo ""
+  echo ""
   git clone https://github.com/saracen/fastzip.git
   echo "Checking out $FASTZIP_TAG"
   cd fastzip && git -c advice.detachedHead=false checkout $FASTZIP_TAG
@@ -70,21 +57,10 @@ zopen_config()
 
   cd .. && echo ""
   git clone https://github.com/hashicorp/go-sockaddr.git
-  echo "Checking out $GOSOCKADDR_TAG"
-  cd go-sockaddr && git -c advice.detachedHead=false checkout $GOSOCKADDR_TAG
-  curl -s -o go-sockaddr--$GOSOCKADDR_TAG.patch "https://raw.githubusercontent.com/ZOSOpenTools/wharf/main/deps-patches/go-sockaddr--$GOSOCKADDR_TAG.patch"
-  git apply -v --ignore-space-change --ignore-whitespace go-sockaddr--$GOSOCKADDR_TAG.patch
 
-  cd .. && echo ""
-  git clone https://github.com/golang/sys.git
-  echo "Checking out $SYS_TAG"
-  cd sys && git -c advice.detachedHead=false checkout $SYS_TAG
-  # curl -s -o sys--$SYS_TAG.patch "https://raw.githubusercontent.com/ZOSOpenTools/wharf/main/deps-patches/sys--$SYS_TAG.patch"
-  # git apply -v --ignore-space-change --ignore-whitespace sys--$SYS_TAG.patch
-  git apply -v --ignore-space-change --ignore-whitespace ../deps-patches/sys--$SYS_TAG.patch
+  echo ""
+  go work init ./gitlab-runner ./machineid ./azure-sdk-for-go/sdk/storage/azblob ./fastzip ./go-sockaddr
 
-  cd .. && echo ""
-  go work init ./gitlab-runner ./machineid ./azure-sdk-for-go/sdk/storage/azblob ./pty ./fastzip ./go-sockaddr ./sys
 }
 
 zopen_install()
