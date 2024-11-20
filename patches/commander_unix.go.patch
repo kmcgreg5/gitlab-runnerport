@@ -1,0 +1,10 @@
+diff --git a/helpers/runner_wrapper/commander_unix.go b/helpers/runner_wrapper/commander_unix.go
+index a1dfb2478..ed1d9688e 100644
+--- a/helpers/runner_wrapper/commander_unix.go
++++ b/helpers/runner_wrapper/commander_unix.go
+@@ -1,4 +1,4 @@
+-//go:build aix || android || darwin || dragonfly || freebsd || hurd || illumos || linux || netbsd || openbsd || solaris
++//go:build aix || android || darwin || dragonfly || freebsd || hurd || illumos || linux || netbsd || openbsd || solaris || zos
+ 
+ package runner_wrapper
+ 
