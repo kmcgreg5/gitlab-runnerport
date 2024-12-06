@@ -3,7 +3,7 @@ RUNNER_VERSION="17.6.0"
 
 export ZOPEN_STABLE_TAG="v${RUNNER_VERSION}"
 export ZOPEN_STABLE_URL="https://gitlab.com/gitlab-org/gitlab-runner.git"
-export ZOPEN_STABLE_DEPS="comp_go git curl"
+export ZOPEN_STABLE_DEPS="check_go git curl"
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_CATEGORIES="development source_control"
 export ZOPEN_NAME="gitlab-runner"
