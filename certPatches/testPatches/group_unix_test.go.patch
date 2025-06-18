@@ -1,0 +1,10 @@
+diff --git a/helpers/process/group_unix_test.go b/helpers/process/group_unix_test.go
+index 6d5307819..cea04d982 100644
+--- a/helpers/process/group_unix_test.go
++++ b/helpers/process/group_unix_test.go
+@@ -1,4 +1,4 @@
+-//go:build !integration && (aix || android || darwin || dragonfly || freebsd || hurd || illumos || linux || netbsd || openbsd || solaris)
++//go:build !integration && (aix || android || darwin || dragonfly || freebsd || hurd || illumos || linux || netbsd || openbsd || solaris || zos)
+ 
+ package process
+ 

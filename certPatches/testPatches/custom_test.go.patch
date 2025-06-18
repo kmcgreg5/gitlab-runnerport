@@ -1,0 +1,13 @@
+diff --git a/executors/custom/custom_test.go b/executors/custom/custom_test.go
+index f2edc760d..7caebe753 100644
+--- a/executors/custom/custom_test.go
++++ b/executors/custom/custom_test.go
+@@ -739,7 +739,7 @@ func TestExecutor_Run(t *testing.T) {
+ 					return "The system cannot find the file specified"
+ 				}
+ 
+-				return "no such file or directory"
++				return "No such file or directory"
+ 			}(),
+ 		},
+ 		"Run executes job": {

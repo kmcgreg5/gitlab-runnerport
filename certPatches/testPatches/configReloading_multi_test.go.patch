@@ -1,0 +1,12 @@
+diff --git a/commands/multi_test.go b/commands/multi_test.go
+index a30dc0739..4de59ec97 100644
+--- a/commands/multi_test.go
++++ b/commands/multi_test.go
+@@ -1140,6 +1140,7 @@ shutdown_timeout = 0`
+ 
+ 	configName := filepath.Join(t.TempDir(), "config-reload-test")
+ 	require.NoError(t, os.WriteFile(configName, []byte(config), 0o777))
++	time.Sleep(1 * time.Second) // Ensure the updated mod time differs enough
+ 
+ 	c := &RunCommand{
+ 		configOptionsWithListenAddress: configOptionsWithListenAddress{

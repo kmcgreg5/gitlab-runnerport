@@ -1,0 +1,10 @@
+diff --git a/helpers/process/killer_unix_integration_test.go b/helpers/process/killer_unix_integration_test.go
+index acd3759aa..a09df5207 100644
+--- a/helpers/process/killer_unix_integration_test.go
++++ b/helpers/process/killer_unix_integration_test.go
+@@ -1,4 +1,4 @@
+-//go:build integration && (aix || android || darwin || dragonfly || freebsd || hurd || illumos || linux || netbsd || openbsd || solaris)
++//go:build integration && (aix || android || darwin || dragonfly || freebsd || hurd || illumos || linux || netbsd || openbsd || solaris || zos)
+ 
+ package process_test
+ 
