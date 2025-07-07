@@ -1,0 +1,10 @@
+diff --git a/helpers/docker/auth/auth_test.go b/helpers/docker/auth/auth_test.go
+index 1b077ab46..8539164c5 100644
+--- a/helpers/docker/auth/auth_test.go
++++ b/helpers/docker/auth/auth_test.go
+@@ -1,4 +1,4 @@
+-//go:build !integration
++//go:build !integration && !zos
+ 
+ package auth
+ 

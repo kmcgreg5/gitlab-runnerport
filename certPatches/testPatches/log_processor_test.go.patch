@@ -1,0 +1,10 @@
+diff --git a/executors/kubernetes/log_processor_test.go b/executors/kubernetes/log_processor_test.go
+index c2b0bd04d..de3e7a3bb 100644
+--- a/executors/kubernetes/log_processor_test.go
++++ b/executors/kubernetes/log_processor_test.go
+@@ -1,4 +1,4 @@
+-//go:build !integration
++//go:build !integration && !zos
+ 
+ package kubernetes
+ 

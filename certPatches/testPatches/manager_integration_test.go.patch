@@ -1,0 +1,10 @@
+diff --git a/executors/docker/internal/networks/manager_integration_test.go b/executors/docker/internal/networks/manager_integration_test.go
+index 18033559e..d756803bf 100644
+--- a/executors/docker/internal/networks/manager_integration_test.go
++++ b/executors/docker/internal/networks/manager_integration_test.go
+@@ -1,4 +1,4 @@
+-//go:build integration
++//go:build integration && !zos
+ 
+ package networks_test
+ 

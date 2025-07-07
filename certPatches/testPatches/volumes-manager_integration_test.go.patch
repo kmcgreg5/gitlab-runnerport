@@ -1,0 +1,10 @@
+diff --git a/executors/docker/internal/volumes/manager_integration_test.go b/executors/docker/internal/volumes/manager_integration_test.go
+index 86d336326..f17fd9e48 100644
+--- a/executors/docker/internal/volumes/manager_integration_test.go
++++ b/executors/docker/internal/volumes/manager_integration_test.go
+@@ -1,4 +1,4 @@
+-//go:build integration
++//go:build integration && !zos
+ 
+ package volumes_test
+ 

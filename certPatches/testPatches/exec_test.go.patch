@@ -1,0 +1,10 @@
+diff --git a/executors/kubernetes/exec_test.go b/executors/kubernetes/exec_test.go
+index 46e312a89..4c5687463 100644
+--- a/executors/kubernetes/exec_test.go
++++ b/executors/kubernetes/exec_test.go
+@@ -1,4 +1,4 @@
+-//go:build !integration
++//go:build !integration && !zos
+ 
+ /*
+ Copyright 2014 The Kubernetes Authors All rights reserved.

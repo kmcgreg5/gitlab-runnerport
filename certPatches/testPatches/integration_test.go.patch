@@ -1,0 +1,12 @@
+diff --git a/executors/custom/integration_test.go b/executors/custom/integration_test.go
+index 7d8853b9e..0dbd8a3c6 100644
+--- a/executors/custom/integration_test.go
++++ b/executors/custom/integration_test.go
+@@ -679,6 +679,6 @@ func TestCleanupProjectGitSubmoduleRecursive(t *testing.T) {
+ 		require.NoError(t, err)
+ 		build := newBuild(t, successfulBuild, shell)
+ 
+-		buildtest.RunBuildWithCleanupNormalSubmoduleStrategy(t, build, untrackedFile, untrackedSubmoduleFile)
++		buildtest.RunBuildWithCleanupRecursiveSubmoduleStrategy(t, build, untrackedFile, untrackedSubmoduleFile, untrackedSubSubmoduleFile)
+ 	})
+ }

@@ -1,5 +1,5 @@
 diff --git a/commands/multi_test.go b/commands/multi_test.go
-index a30dc0739..3aaf68093 100644
+index a30dc0739..1996282d3 100644
 --- a/commands/multi_test.go
 +++ b/commands/multi_test.go
 @@ -80,7 +80,7 @@ func TestProcessRunner_BuildLimit(t *testing.T) {
@@ -7,7 +7,7 @@ index a30dc0739..3aaf68093 100644
  
  		// Simulate work to fill up build queue.
 -		time.Sleep(1 * time.Second)
-+		time.Sleep(5 * time.Second)
++		time.Sleep(10 * time.Second)
  	}).Return(nil)
  
  	p := common.MockExecutorProvider{}

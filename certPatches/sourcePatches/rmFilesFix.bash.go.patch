@@ -1,5 +1,5 @@
 diff --git a/shells/bash.go b/shells/bash.go
-index 33c18a28c..b45c51ded 100644
+index 33c18a28c..26aea755c 100644
 --- a/shells/bash.go
 +++ b/shells/bash.go
 @@ -312,14 +312,14 @@ func (b *BashWriter) RmFile(path string) {
@@ -15,7 +15,7 @@ index 33c18a28c..b45c51ded 100644
  	b.IfDirectory(path)
  	// `find -delete` is not portable; https://unix.stackexchange.com/a/194348
 -	b.Linef("find %q -name %q -type d -exec rm -rf -- {} +", path, name)
-+	b.Linef("find %q -name %q -type d -exec rm -rf -- {} \\;", path, name)
++	b.Linef("find %q -name %q -type d -depth -exec rm -rf -- {} \\;", path, name)
  	b.EndIf()
  }
  

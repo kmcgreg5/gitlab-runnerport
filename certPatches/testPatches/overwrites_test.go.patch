@@ -1,0 +1,10 @@
+diff --git a/executors/kubernetes/overwrites_test.go b/executors/kubernetes/overwrites_test.go
+index 544c9147d..8fc00d862 100644
+--- a/executors/kubernetes/overwrites_test.go
++++ b/executors/kubernetes/overwrites_test.go
+@@ -1,4 +1,4 @@
+-//go:build !integration
++//go:build !integration && !zos
+ 
+ package kubernetes
+ 

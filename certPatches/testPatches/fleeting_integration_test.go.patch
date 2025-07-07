@@ -1,0 +1,10 @@
+diff --git a/commands/fleeting/fleeting_integration_test.go b/commands/fleeting/fleeting_integration_test.go
+index e56262b90..81f320f5c 100644
+--- a/commands/fleeting/fleeting_integration_test.go
++++ b/commands/fleeting/fleeting_integration_test.go
+@@ -1,4 +1,4 @@
+-//go:build integration
++//go:build integration && !zos
+ 
+ package fleeting
+ 

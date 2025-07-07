@@ -1,0 +1,21 @@
+diff --git a/executors/shell/shell_integration_test.go b/executors/shell/shell_integration_test.go
+index cf8acc584..ba4781ff6 100644
+--- a/executors/shell/shell_integration_test.go
++++ b/executors/shell/shell_integration_test.go
+@@ -119,6 +119,8 @@ func newBuild(t *testing.T, getBuildResponse common.JobResponse, shell string) *
+ 
+ 	t.Log("Build directory:", dir)
+ 
++	pathEnv := os.Getenv("PATH")
++
+ 	build := &common.Build{
+ 		JobResponse: getBuildResponse,
+ 		Runner: &common.RunnerConfig{
+@@ -129,6 +131,7 @@ func newBuild(t *testing.T, getBuildResponse common.JobResponse, shell string) *
+ 				GracefulKillTimeout: func(i int) *int { return &i }(5),
+ 				ForceKillTimeout:    func(i int) *int { return &i }(1),
+ 				Cache:               &common.CacheConfig{},
++				Environment:         []string{"PATH=" + pathEnv},
+ 			},
+ 		},
+ 		SystemInterrupt: make(chan os.Signal, 1),

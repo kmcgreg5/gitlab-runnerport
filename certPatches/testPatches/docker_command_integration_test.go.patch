@@ -1,0 +1,10 @@
+diff --git a/executors/docker/docker_command_integration_test.go b/executors/docker/docker_command_integration_test.go
+index e929a888d..034f09f88 100644
+--- a/executors/docker/docker_command_integration_test.go
++++ b/executors/docker/docker_command_integration_test.go
+@@ -1,4 +1,4 @@
+-//go:build integration
++//go:build integration && !zos
+ 
+ package docker_test
+ 

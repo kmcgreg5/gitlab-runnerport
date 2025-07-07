@@ -1,0 +1,10 @@
+diff --git a/executors/docker/internal/volumes/permission/linux_set_integration_test.go b/executors/docker/internal/volumes/permission/linux_set_integration_test.go
+index d9e3f34ea..3dfed9816 100644
+--- a/executors/docker/internal/volumes/permission/linux_set_integration_test.go
++++ b/executors/docker/internal/volumes/permission/linux_set_integration_test.go
+@@ -1,4 +1,4 @@
+-//go:build integration
++//go:build integration && !zos
+ 
+ package permission_test
+ 

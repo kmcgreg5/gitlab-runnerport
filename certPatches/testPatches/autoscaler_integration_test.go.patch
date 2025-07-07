@@ -1,0 +1,10 @@
+diff --git a/executors/docker/autoscaler/autoscaler_integration_test.go b/executors/docker/autoscaler/autoscaler_integration_test.go
+index 4968c95fa..a39593751 100644
+--- a/executors/docker/autoscaler/autoscaler_integration_test.go
++++ b/executors/docker/autoscaler/autoscaler_integration_test.go
+@@ -1,4 +1,4 @@
+-//go:build integration
++//go:build integration && !zos
+ 
+ package autoscaler_test
+ 

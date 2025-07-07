@@ -1,0 +1,10 @@
+diff --git a/executors/kubernetes/kubernetes_integration_test.go b/executors/kubernetes/kubernetes_integration_test.go
+index eb873cbad..a62b879bd 100644
+--- a/executors/kubernetes/kubernetes_integration_test.go
++++ b/executors/kubernetes/kubernetes_integration_test.go
+@@ -1,4 +1,4 @@
+-//go:build integration && kubernetes
++//go:build integration && kubernetes && !zos
+ 
+ package kubernetes_test
+ 

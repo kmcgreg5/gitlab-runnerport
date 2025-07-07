@@ -1,0 +1,10 @@
+diff --git a/executors/kubernetes/host_aliases_test.go b/executors/kubernetes/host_aliases_test.go
+index f5af72b0a..a624f09f3 100644
+--- a/executors/kubernetes/host_aliases_test.go
++++ b/executors/kubernetes/host_aliases_test.go
+@@ -1,4 +1,4 @@
+-//go:build !integration
++//go:build !integration && !zos
+ 
+ package kubernetes
+ 
